@@ -1,0 +1,8 @@
+version: '2'
+services:
+    farmcontroller-mongodb:
+        image: mongo:4.0.2
+        ports:
+            - "27017:27017"
+        # volumes:
+        #     - ~/volumes/jhipster/FarmController/mongodb/:/data/db/
