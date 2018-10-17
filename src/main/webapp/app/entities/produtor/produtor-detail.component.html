@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="produtor">
+            <h2><span jhiTranslate="farmControllerApp.produtor.detail.title">Produtor</span> {{produtor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="farmControllerApp.produtor.nome">Nome</span></dt>
+                <dd>
+                    <span>{{produtor.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.produtor.cpf">Cpf</span></dt>
+                <dd>
+                    <span>{{produtor.cpf}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.produtor.dataNascimento">Data Nascimento</span></dt>
+                <dd>
+                    <span>{{produtor.dataNascimento}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/produtor', produtor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

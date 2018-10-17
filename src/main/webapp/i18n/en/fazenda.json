@@ -1,0 +1,27 @@
+
+{
+    "farmControllerApp": {
+        "fazenda" : {
+            "home": {
+                "title": "Fazendas",
+                "createLabel": "Create a new Fazenda",
+                "createOrEditLabel": "Create or edit a Fazenda"
+            },
+            "created": "A new Fazenda is created with identifier {{ param }}",
+            "updated": "A Fazenda is updated with identifier {{ param }}",
+            "deleted": "A Fazenda is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Fazenda {{ id }}?"
+            },
+            "detail": {
+                "title": "Fazenda"
+            },
+            "nome": "Nome",
+            "municipio": "Municipio",
+            "area": "Area",
+            "geometria": "Geometria",
+            "produtor": "Produtor",
+            "talhao": "Talhao"
+        }
+    }
+}

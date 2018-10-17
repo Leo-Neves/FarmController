@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="safra">
+            <h2><span jhiTranslate="farmControllerApp.safra.detail.title">Safra</span> {{safra.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="farmControllerApp.safra.alcunha">Alcunha</span></dt>
+                <dd>
+                    <span>{{safra.alcunha}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.safra.dataInicio">Data Inicio</span></dt>
+                <dd>
+                    <span>{{safra.dataInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.safra.dataFim">Data Fim</span></dt>
+                <dd>
+                    <span>{{safra.dataFim}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.safra.plantio">Plantio</span></dt>
+                <dd>
+                    <div *ngIf="safra.plantio">
+                        <a [routerLink]="['/plantio', safra.plantio?.id, 'view']">{{safra.plantio?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/safra', safra.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

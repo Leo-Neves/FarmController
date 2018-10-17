@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="plantio">
+            <h2><span jhiTranslate="farmControllerApp.plantio.detail.title">Plantio</span> {{plantio.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="farmControllerApp.plantio.dataPlantio" [ngbTooltip]="'farmControllerApp.plantio.help.dataPlantio' | translate">Data Plantio</span></dt>
+                <dd>
+                    <span>{{plantio.dataPlantio}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.plantio.dataPrevisaoColheita">Data Previsao Colheita</span></dt>
+                <dd>
+                    <span>{{plantio.dataPrevisaoColheita}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.plantio.quantidadePlantado">Quantidade Plantado</span></dt>
+                <dd>
+                    <span>{{plantio.quantidadePlantado}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.plantio.talhao">Talhao</span></dt>
+                <dd>
+                    <div *ngIf="plantio.talhao">
+                        <a [routerLink]="['/talhao', plantio.talhao?.id, 'view']">{{plantio.talhao?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.plantio.cultura">Cultura</span></dt>
+                <dd>
+                    <div *ngIf="plantio.cultura">
+                        <a [routerLink]="['/cultura', plantio.cultura?.id, 'view']">{{plantio.cultura?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.plantio.colheita">Colheita</span></dt>
+                <dd>
+                    <div *ngIf="plantio.colheita">
+                        <a [routerLink]="['/colheita', plantio.colheita?.id, 'view']">{{plantio.colheita?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.plantio.insumo">Insumo</span></dt>
+                <dd>
+                    <span *ngFor="let insumo of plantio.insumos; let last = last">
+                        <a [routerLink]="['/insumo', insumo?.id, 'view' ]">{{insumo.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.plantio.atividade">Atividade</span></dt>
+                <dd>
+                    <span *ngFor="let atividade of plantio.atividades; let last = last">
+                        <a [routerLink]="['/atividade', atividade?.id, 'view' ]">{{atividade.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/plantio', plantio.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

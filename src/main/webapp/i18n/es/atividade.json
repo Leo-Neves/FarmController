@@ -1,0 +1,22 @@
+
+{
+    "farmControllerApp": {
+        "atividade" : {
+            "home": {
+                "title": "Atividades",
+                "createLabel": "Crear nuevo Atividade",
+                "createOrEditLabel": "Crear o editar Atividade"
+            },
+            "created": "Un nuevo Atividade ha sido creado con el identificador {{ param }}",
+            "updated": "Un Atividade ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Atividade ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Atividade {{ id }}?"
+            },
+            "detail": {
+                "title": "Atividade"
+            },
+            "nome": "Nome"
+        }
+    }
+}

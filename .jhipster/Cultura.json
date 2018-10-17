@@ -1,0 +1,31 @@
+{
+    "name": "Cultura",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomeCientifico",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "plantio",
+            "otherEntityName": "plantio",
+            "otherEntityRelationshipName": "cultura"
+        }
+    ],
+    "changelogDate": "20181017222511",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "cultura",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

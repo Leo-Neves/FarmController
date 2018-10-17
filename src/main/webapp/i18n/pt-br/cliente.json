@@ -1,0 +1,23 @@
+
+{
+    "farmControllerApp": {
+        "cliente" : {
+            "home": {
+                "title": "Clientes",
+                "createLabel": "Criar novo Cliente",
+                "createOrEditLabel": "Criar ou editar Cliente"
+            },
+            "created": "Um novo Cliente foi criado com o identificador {{ param }}",
+            "updated": "Um Cliente foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Cliente foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Cliente {{ id }}?"
+            },
+            "detail": {
+                "title": "Cliente"
+            },
+            "nome": "Nome",
+            "venda": "Venda"
+        }
+    }
+}

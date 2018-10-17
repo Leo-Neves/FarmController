@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="farmControllerApp.plantio.home.title">Plantios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-plantio" [routerLink]="['/plantio/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="farmControllerApp.plantio.home.createLabel">
+            Create new Plantio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="plantios">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="farmControllerApp.plantio.dataPlantio">Data Plantio</span></th>
+            <th><span jhiTranslate="farmControllerApp.plantio.dataPrevisaoColheita">Data Previsao Colheita</span></th>
+            <th><span jhiTranslate="farmControllerApp.plantio.quantidadePlantado">Quantidade Plantado</span></th>
+            <th><span jhiTranslate="farmControllerApp.plantio.talhao">Talhao</span></th>
+            <th><span jhiTranslate="farmControllerApp.plantio.cultura">Cultura</span></th>
+            <th><span jhiTranslate="farmControllerApp.plantio.colheita">Colheita</span></th>
+            <th><span jhiTranslate="farmControllerApp.plantio.insumo">Insumo</span></th>
+            <th><span jhiTranslate="farmControllerApp.plantio.atividade">Atividade</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let plantio of plantios ;trackBy: trackId">
+                <td><a [routerLink]="['/plantio', plantio.id, 'view' ]">{{plantio.id}}</a></td>
+                <td>{{plantio.dataPlantio | date:'mediumDate'}}</td>
+                <td>{{plantio.dataPrevisaoColheita | date:'mediumDate'}}</td>
+                <td>{{plantio.quantidadePlantado}}</td>
+                <td>
+                    <div *ngIf="plantio.talhao">
+                        <a [routerLink]="['../talhao', plantio.talhao?.id, 'view' ]" >{{plantio.talhao?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plantio.cultura">
+                        <a [routerLink]="['../cultura', plantio.cultura?.id, 'view' ]" >{{plantio.cultura?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plantio.colheita">
+                        <a [routerLink]="['../colheita', plantio.colheita?.id, 'view' ]" >{{plantio.colheita?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let insumo of plantio.insumos; let last = last">
+                            <a class="form-control-static" [routerLink]="['../insumo', insumo?.id, 'view' ]">{{insumo.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let atividade of plantio.atividades; let last = last">
+                            <a class="form-control-static" [routerLink]="['../atividade', atividade?.id, 'view' ]">{{atividade.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/plantio', plantio.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/plantio', plantio.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'plantio/'+ plantio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

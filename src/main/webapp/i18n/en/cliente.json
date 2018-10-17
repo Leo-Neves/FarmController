@@ -1,0 +1,23 @@
+
+{
+    "farmControllerApp": {
+        "cliente" : {
+            "home": {
+                "title": "Clientes",
+                "createLabel": "Create a new Cliente",
+                "createOrEditLabel": "Create or edit a Cliente"
+            },
+            "created": "A new Cliente is created with identifier {{ param }}",
+            "updated": "A Cliente is updated with identifier {{ param }}",
+            "deleted": "A Cliente is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cliente {{ id }}?"
+            },
+            "detail": {
+                "title": "Cliente"
+            },
+            "nome": "Nome",
+            "venda": "Venda"
+        }
+    }
+}

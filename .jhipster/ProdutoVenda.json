@@ -1,0 +1,32 @@
+{
+    "name": "ProdutoVenda",
+    "fields": [
+        {
+            "fieldName": "preco",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "produtosAgricola",
+            "otherEntityName": "produtoAgricola",
+            "otherEntityRelationshipName": "produtoVenda"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "venda",
+            "otherEntityName": "venda",
+            "otherEntityRelationshipName": "produtoVenda"
+        }
+    ],
+    "changelogDate": "20181017222517",
+    "entityTableName": "produto_venda",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

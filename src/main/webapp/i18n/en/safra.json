@@ -1,0 +1,25 @@
+
+{
+    "farmControllerApp": {
+        "safra" : {
+            "home": {
+                "title": "Safras",
+                "createLabel": "Create a new Safra",
+                "createOrEditLabel": "Create or edit a Safra"
+            },
+            "created": "A new Safra is created with identifier {{ param }}",
+            "updated": "A Safra is updated with identifier {{ param }}",
+            "deleted": "A Safra is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Safra {{ id }}?"
+            },
+            "detail": {
+                "title": "Safra"
+            },
+            "alcunha": "Alcunha",
+            "dataInicio": "Data Inicio",
+            "dataFim": "Data Fim",
+            "plantio": "Plantio"
+        }
+    }
+}

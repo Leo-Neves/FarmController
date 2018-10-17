@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-plantio-heading" jhiTranslate="farmControllerApp.plantio.home.createOrEditLabel">Create or edit a Plantio</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!plantio.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="plantio.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.plantio.dataPlantio" for="field_dataPlantio" [ngbTooltip]="'farmControllerApp.plantio.help.dataPlantio' | translate">Data Plantio</label>
+                    <div class="input-group">
+                        <input id="field_dataPlantio" type="text" class="form-control" name="dataPlantio" ngbDatepicker  #dataPlantioDp="ngbDatepicker" [(ngModel)]="plantio.dataPlantio"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataPlantioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.plantio.dataPrevisaoColheita" for="field_dataPrevisaoColheita">Data Previsao Colheita</label>
+                    <div class="input-group">
+                        <input id="field_dataPrevisaoColheita" type="text" class="form-control" name="dataPrevisaoColheita" ngbDatepicker  #dataPrevisaoColheitaDp="ngbDatepicker" [(ngModel)]="plantio.dataPrevisaoColheita"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataPrevisaoColheitaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.plantio.quantidadePlantado" for="field_quantidadePlantado">Quantidade Plantado</label>
+                    <input type="number" class="form-control" name="quantidadePlantado" id="field_quantidadePlantado"
+                        [(ngModel)]="plantio.quantidadePlantado" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.plantio.talhao" for="field_talhao">Talhao</label>
+                    <select class="form-control" id="field_talhao" name="talhao" [(ngModel)]="plantio.talhao" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="talhaoOption.id === plantio.talhao?.id ? plantio.talhao : talhaoOption" *ngFor="let talhaoOption of talhaos; trackBy: trackTalhaoById">{{talhaoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.plantio.cultura" for="field_cultura">Cultura</label>
+                    <select class="form-control" id="field_cultura" name="cultura" [(ngModel)]="plantio.cultura" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="culturaOption.id === plantio.cultura?.id ? plantio.cultura : culturaOption" *ngFor="let culturaOption of culturas; trackBy: trackCulturaById">{{culturaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.plantio.colheita" for="field_colheita">Colheita</label>
+                    <select class="form-control" id="field_colheita" name="colheita" [(ngModel)]="plantio.colheita">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="colheitaOption.id === plantio.colheita?.id ? plantio.colheita : colheitaOption" *ngFor="let colheitaOption of colheitas; trackBy: trackColheitaById">{{colheitaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="farmControllerApp.plantio.insumo" for="field_insumo">Insumo</label>
+                    <select class="form-control" id="field_insumo" multiple name="insumo" [(ngModel)]="plantio.insumos">
+                        <option [ngValue]="getSelected(plantio.insumos, insumoOption)" *ngFor="let insumoOption of insumos; trackBy: trackInsumoById">{{insumoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="farmControllerApp.plantio.atividade" for="field_atividade">Atividade</label>
+                    <select class="form-control" id="field_atividade" multiple name="atividade" [(ngModel)]="plantio.atividades">
+                        <option [ngValue]="getSelected(plantio.atividades, atividadeOption)" *ngFor="let atividadeOption of atividades; trackBy: trackAtividadeById">{{atividadeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

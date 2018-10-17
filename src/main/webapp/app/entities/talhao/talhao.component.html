@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="farmControllerApp.talhao.home.title">Talhaos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-talhao" [routerLink]="['/talhao/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="farmControllerApp.talhao.home.createLabel">
+            Create new Talhao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="talhaos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="farmControllerApp.talhao.nome">Nome</span></th>
+            <th><span jhiTranslate="farmControllerApp.talhao.geometria">Geometria</span></th>
+            <th><span jhiTranslate="farmControllerApp.talhao.fazenda">Fazenda</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let talhao of talhaos ;trackBy: trackId">
+                <td><a [routerLink]="['/talhao', talhao.id, 'view' ]">{{talhao.id}}</a></td>
+                <td>{{talhao.nome}}</td>
+                <td>{{talhao.geometria}}</td>
+                <td>
+                    <div *ngIf="talhao.fazenda">
+                        <a [routerLink]="['../fazenda', talhao.fazenda?.id, 'view' ]" >{{talhao.fazenda?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/talhao', talhao.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/talhao', talhao.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'talhao/'+ talhao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
