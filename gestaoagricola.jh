@@ -1,0 +1,120 @@
+entity Produtor {
+	nome String,
+    cpf Integer,
+    dataNascimento LocalDate
+}
+
+entity Fazenda {
+	nome String,
+    municipio String,
+    area Double,
+    geometria String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Talhao {
+	nome String,
+	geometria String
+}
+
+entity Safra {
+	alcunha String required,
+    dataInicio LocalDate,
+    dataFim LocalDate
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Cultura {
+	nome String,
+	nomeCientifico String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Plantio {
+	/**
+	* The firstname attribute.
+	*/
+	dataPlantio LocalDate,
+	dataPrevisaoColheita LocalDate,
+	quantidadePlantado Double
+}
+
+entity Insumo {
+	nome String
+}
+
+entity Atividade {
+	nome String
+}
+
+entity Colheita {
+    dataColheita LocalDate,
+    produtividade Double
+}
+
+entity ProdutoAgricola{
+	nome String
+}
+
+entity ProdutoVenda{
+	preco Double
+}
+
+entity Venda{
+	dataVenda LocalDate
+}
+
+entity Cliente{
+	nome String
+}
+
+relationship OneToMany {
+	Produtor{fazenda} to Fazenda
+}
+
+relationship OneToMany {
+	Fazenda{talhao} to Talhao
+}
+
+relationship OneToMany {
+	Talhao{plantio} to Plantio
+}
+
+relationship OneToMany {
+	Plantio{safra} to Safra
+}
+
+relationship ManyToMany {
+	Plantio{insumo} to Insumo
+}
+
+relationship ManyToMany {
+	Plantio{atividade} to Atividade
+}
+
+relationship OneToMany {
+	Cultura{plantio} to Plantio
+}
+
+relationship OneToOne {
+	Plantio{colheita} to Colheita{plantio}
+}
+
+relationship OneToOne {
+	Colheita{produtoAgricola} to ProdutoAgricola{colheita}
+}
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	ProdutoVenda{produtosAgricola} to ProdutoAgricola,
+	ProdutoVenda{venda} to Venda
+}
+
+relationship OneToMany {
+	Cliente{venda} to Venda{cliente}
+}
