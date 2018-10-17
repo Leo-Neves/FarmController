@@ -8,21 +8,25 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import org.hibernate.annotations.GenericGenerator;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
+import javax.persistence.*;
 
 /**
  * not an ignored comment
  */
 @ApiModel(description = "not an ignored comment")
 @Document(collection = "talhao")
-public class Talhao implements Serializable {
+public class Talhao extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
     @Field("nome")

@@ -156,7 +156,7 @@ public class CulturaResourceIntTest {
     @Test
     public void getNonExistingCultura() throws Exception {
         // Get the cultura
-        restCulturaMockMvc.perform(get("/api/culturas/{id}", Long.MAX_VALUE))
+        restCulturaMockMvc.perform(get("/api/culturas/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

@@ -204,7 +204,7 @@ public class PlantioResourceIntTest {
     @Test
     public void getNonExistingPlantio() throws Exception {
         // Get the plantio
-        restPlantioMockMvc.perform(get("/api/plantios/{id}", Long.MAX_VALUE))
+        restPlantioMockMvc.perform(get("/api/plantios/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

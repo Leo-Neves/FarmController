@@ -149,7 +149,7 @@ public class ClienteResourceIntTest {
     @Test
     public void getNonExistingCliente() throws Exception {
         // Get the cliente
-        restClienteMockMvc.perform(get("/api/clientes/{id}", Long.MAX_VALUE))
+        restClienteMockMvc.perform(get("/api/clientes/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

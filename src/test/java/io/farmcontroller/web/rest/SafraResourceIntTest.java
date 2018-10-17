@@ -182,7 +182,7 @@ public class SafraResourceIntTest {
     @Test
     public void getNonExistingSafra() throws Exception {
         // Get the safra
-        restSafraMockMvc.perform(get("/api/safras/{id}", Long.MAX_VALUE))
+        restSafraMockMvc.perform(get("/api/safras/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

@@ -149,7 +149,7 @@ public class ProdutoVendaResourceIntTest {
     @Test
     public void getNonExistingProdutoVenda() throws Exception {
         // Get the produtoVenda
-        restProdutoVendaMockMvc.perform(get("/api/produto-vendas/{id}", Long.MAX_VALUE))
+        restProdutoVendaMockMvc.perform(get("/api/produto-vendas/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

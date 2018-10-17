@@ -156,7 +156,7 @@ public class TalhaoResourceIntTest {
     @Test
     public void getNonExistingTalhao() throws Exception {
         // Get the talhao
-        restTalhaoMockMvc.perform(get("/api/talhaos/{id}", Long.MAX_VALUE))
+        restTalhaoMockMvc.perform(get("/api/talhaos/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

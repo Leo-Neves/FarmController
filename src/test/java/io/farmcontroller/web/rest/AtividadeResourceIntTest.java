@@ -149,7 +149,7 @@ public class AtividadeResourceIntTest {
     @Test
     public void getNonExistingAtividade() throws Exception {
         // Get the atividade
-        restAtividadeMockMvc.perform(get("/api/atividades/{id}", Long.MAX_VALUE))
+        restAtividadeMockMvc.perform(get("/api/atividades/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

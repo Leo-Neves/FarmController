@@ -6,20 +6,24 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import org.hibernate.annotations.GenericGenerator;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
+import javax.persistence.*;
 
 /**
  * A ProdutoVenda.
  */
 @Document(collection = "produto_venda")
-public class ProdutoVenda implements Serializable {
+public class ProdutoVenda extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
     @Field("preco")

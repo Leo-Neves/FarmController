@@ -165,7 +165,7 @@ public class ProdutorResourceIntTest {
     @Test
     public void getNonExistingProdutor() throws Exception {
         // Get the produtor
-        restProdutorMockMvc.perform(get("/api/produtors/{id}", Long.MAX_VALUE))
+        restProdutorMockMvc.perform(get("/api/produtors/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

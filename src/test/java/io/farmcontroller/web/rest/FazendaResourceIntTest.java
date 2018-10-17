@@ -170,7 +170,7 @@ public class FazendaResourceIntTest {
     @Test
     public void getNonExistingFazenda() throws Exception {
         // Get the fazenda
-        restFazendaMockMvc.perform(get("/api/fazendas/{id}", Long.MAX_VALUE))
+        restFazendaMockMvc.perform(get("/api/fazendas/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

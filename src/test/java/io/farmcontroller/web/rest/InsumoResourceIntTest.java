@@ -149,7 +149,7 @@ public class InsumoResourceIntTest {
     @Test
     public void getNonExistingInsumo() throws Exception {
         // Get the insumo
-        restInsumoMockMvc.perform(get("/api/insumos/{id}", Long.MAX_VALUE))
+        restInsumoMockMvc.perform(get("/api/insumos/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

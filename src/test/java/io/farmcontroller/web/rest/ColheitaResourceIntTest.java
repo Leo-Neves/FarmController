@@ -158,7 +158,7 @@ public class ColheitaResourceIntTest {
     @Test
     public void getNonExistingColheita() throws Exception {
         // Get the colheita
-        restColheitaMockMvc.perform(get("/api/colheitas/{id}", Long.MAX_VALUE))
+        restColheitaMockMvc.perform(get("/api/colheitas/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

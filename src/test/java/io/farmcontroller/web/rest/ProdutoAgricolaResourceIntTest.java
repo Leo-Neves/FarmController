@@ -149,7 +149,7 @@ public class ProdutoAgricolaResourceIntTest {
     @Test
     public void getNonExistingProdutoAgricola() throws Exception {
         // Get the produtoAgricola
-        restProdutoAgricolaMockMvc.perform(get("/api/produto-agricolas/{id}", Long.MAX_VALUE))
+        restProdutoAgricolaMockMvc.perform(get("/api/produto-agricolas/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 

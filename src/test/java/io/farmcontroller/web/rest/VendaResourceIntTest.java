@@ -151,7 +151,7 @@ public class VendaResourceIntTest {
     @Test
     public void getNonExistingVenda() throws Exception {
         // Get the venda
-        restVendaMockMvc.perform(get("/api/vendas/{id}", Long.MAX_VALUE))
+        restVendaMockMvc.perform(get("/api/vendas/{id}", "-1"))
             .andExpect(status().isNotFound());
     }
 
