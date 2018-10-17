@@ -1,0 +1,25 @@
+
+{
+    "farmControllerApp": {
+        "produtor" : {
+            "home": {
+                "title": "Produtors",
+                "createLabel": "Criar novo Produtor",
+                "createOrEditLabel": "Criar ou editar Produtor"
+            },
+            "created": "Um novo Produtor foi criado com o identificador {{ param }}",
+            "updated": "Um Produtor foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Produtor foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Produtor {{ id }}?"
+            },
+            "detail": {
+                "title": "Produtor"
+            },
+            "nome": "Nome",
+            "cpf": "Cpf",
+            "dataNascimento": "Data Nascimento",
+            "fazenda": "Fazenda"
+        }
+    }
+}

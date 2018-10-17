@@ -1,0 +1,33 @@
+
+{
+    "farmControllerApp": {
+        "plantio" : {
+            "home": {
+                "title": "Plantios",
+                "createLabel": "Crear nuevo Plantio",
+                "createOrEditLabel": "Crear o editar Plantio"
+            },
+            "created": "Un nuevo Plantio ha sido creado con el identificador {{ param }}",
+            "updated": "Un Plantio ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Plantio ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Plantio {{ id }}?"
+            },
+            "detail": {
+                "title": "Plantio"
+            },
+            "dataPlantio": "Data Plantio",
+            "dataPrevisaoColheita": "Data Previsao Colheita",
+            "quantidadePlantado": "Quantidade Plantado",
+            "talhao": "Talhao",
+            "cultura": "Cultura",
+            "colheita": "Colheita",
+            "safra": "Safra",
+            "insumo": "Insumo",
+            "atividade": "Atividade",
+            "help": {
+                "dataPlantio": "The firstname attribute."
+            }
+        }
+    }
+}

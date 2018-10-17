@@ -1,0 +1,44 @@
+{
+    "name": "Fazenda",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "municipio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "area",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "geometria",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "produtor",
+            "otherEntityName": "produtor",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "talhao",
+            "otherEntityName": "talhao",
+            "otherEntityRelationshipName": "fazenda"
+        }
+    ],
+    "changelogDate": "20181017222508",
+    "entityTableName": "fazenda",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

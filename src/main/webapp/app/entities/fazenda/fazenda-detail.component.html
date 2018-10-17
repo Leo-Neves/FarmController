@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fazenda">
+            <h2><span jhiTranslate="farmControllerApp.fazenda.detail.title">Fazenda</span> {{fazenda.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="farmControllerApp.fazenda.nome">Nome</span></dt>
+                <dd>
+                    <span>{{fazenda.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.fazenda.municipio">Municipio</span></dt>
+                <dd>
+                    <span>{{fazenda.municipio}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.fazenda.area">Area</span></dt>
+                <dd>
+                    <span>{{fazenda.area}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.fazenda.geometria">Geometria</span></dt>
+                <dd>
+                    <span>{{fazenda.geometria}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.fazenda.produtor">Produtor</span></dt>
+                <dd>
+                    <div *ngIf="fazenda.produtor">
+                        <a [routerLink]="['/produtor', fazenda.produtor?.id, 'view']">{{fazenda.produtor?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fazenda', fazenda.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

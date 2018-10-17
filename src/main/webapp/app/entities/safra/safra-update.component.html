@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-safra-heading" jhiTranslate="farmControllerApp.safra.home.createOrEditLabel">Create or edit a Safra</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!safra.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="safra.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.safra.alcunha" for="field_alcunha">Alcunha</label>
+                    <input type="text" class="form-control" name="alcunha" id="field_alcunha"
+                        [(ngModel)]="safra.alcunha" required/>
+                    <div [hidden]="!(editForm.controls.alcunha?.dirty && editForm.controls.alcunha?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.alcunha?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.safra.dataInicio" for="field_dataInicio">Data Inicio</label>
+                    <div class="input-group">
+                        <input id="field_dataInicio" type="text" class="form-control" name="dataInicio" ngbDatepicker  #dataInicioDp="ngbDatepicker" [(ngModel)]="safra.dataInicio"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataInicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.safra.dataFim" for="field_dataFim">Data Fim</label>
+                    <div class="input-group">
+                        <input id="field_dataFim" type="text" class="form-control" name="dataFim" ngbDatepicker  #dataFimDp="ngbDatepicker" [(ngModel)]="safra.dataFim"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataFimDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.safra.plantio" for="field_plantio">Plantio</label>
+                    <select class="form-control" id="field_plantio" name="plantio" [(ngModel)]="safra.plantio" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="plantioOption.id === safra.plantio?.id ? safra.plantio : plantioOption" *ngFor="let plantioOption of plantios; trackBy: trackPlantioById">{{plantioOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+
+{
+    "farmControllerApp": {
+        "talhao" : {
+            "home": {
+                "title": "Talhaos",
+                "createLabel": "Criar novo Talhao",
+                "createOrEditLabel": "Criar ou editar Talhao"
+            },
+            "created": "Um novo Talhao foi criado com o identificador {{ param }}",
+            "updated": "Um Talhao foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Talhao foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Talhao {{ id }}?"
+            },
+            "detail": {
+                "title": "Talhao"
+            },
+            "nome": "Nome",
+            "geometria": "Geometria",
+            "fazenda": "Fazenda",
+            "plantio": "Plantio"
+        }
+    }
+}

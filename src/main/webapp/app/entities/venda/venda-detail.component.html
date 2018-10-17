@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="venda">
+            <h2><span jhiTranslate="farmControllerApp.venda.detail.title">Venda</span> {{venda.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="farmControllerApp.venda.dataVenda">Data Venda</span></dt>
+                <dd>
+                    <span>{{venda.dataVenda}}</span>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.venda.produtoVenda">Produto Venda</span></dt>
+                <dd>
+                    <div *ngIf="venda.produtoVenda">
+                        <a [routerLink]="['/produto-venda', venda.produtoVenda?.id, 'view']">{{venda.produtoVenda?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="farmControllerApp.venda.cliente">Cliente</span></dt>
+                <dd>
+                    <div *ngIf="venda.cliente">
+                        <a [routerLink]="['/cliente', venda.cliente?.id, 'view']">{{venda.cliente?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/venda', venda.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

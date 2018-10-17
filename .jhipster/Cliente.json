@@ -1,0 +1,26 @@
+{
+    "name": "Cliente",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "venda",
+            "otherEntityName": "venda",
+            "otherEntityRelationshipName": "cliente"
+        }
+    ],
+    "changelogDate": "20181017222519",
+    "entityTableName": "cliente",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
