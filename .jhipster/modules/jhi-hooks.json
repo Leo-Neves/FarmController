@@ -1,0 +1,10 @@
+[
+    {
+        "name": "String Converter generator",
+        "npmPackageName": "generator-jhipster-string-converter",
+        "description": "Long to String converter",
+        "hookFor": "entity",
+        "hookType": "post",
+        "generatorCallback": "jhipster-string-converter:entity"
+    }
+]
