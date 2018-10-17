@@ -1,0 +1,24 @@
+
+{
+    "farmControllerApp": {
+        "produtoAgricola" : {
+            "home": {
+                "title": "Produto Agricolas",
+                "createLabel": "Criar novo Produto Agricola",
+                "createOrEditLabel": "Criar ou editar Produto Agricola"
+            },
+            "created": "Um novo Produto Agricola foi criado com o identificador {{ param }}",
+            "updated": "Um Produto Agricola foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Produto Agricola foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Produto Agricola {{ id }}?"
+            },
+            "detail": {
+                "title": "Produto Agricola"
+            },
+            "nome": "Nome",
+            "colheita": "Colheita",
+            "produtoVenda": "Produto Venda"
+        }
+    }
+}

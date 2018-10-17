@@ -1,0 +1,32 @@
+{
+    "name": "Venda",
+    "fields": [
+        {
+            "fieldName": "dataVenda",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "produtoVenda",
+            "otherEntityName": "produtoVenda",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181017222518",
+    "entityTableName": "venda",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,22 @@
+
+{
+    "farmControllerApp": {
+        "insumo" : {
+            "home": {
+                "title": "Insumos",
+                "createLabel": "Criar novo Insumo",
+                "createOrEditLabel": "Criar ou editar Insumo"
+            },
+            "created": "Um novo Insumo foi criado com o identificador {{ param }}",
+            "updated": "Um Insumo foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Insumo foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Insumo {{ id }}?"
+            },
+            "detail": {
+                "title": "Insumo"
+            },
+            "nome": "Nome"
+        }
+    }
+}

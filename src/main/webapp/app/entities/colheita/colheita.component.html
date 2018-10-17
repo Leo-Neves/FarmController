@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="farmControllerApp.colheita.home.title">Colheitas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-colheita" [routerLink]="['/colheita/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="farmControllerApp.colheita.home.createLabel">
+            Create new Colheita
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="colheitas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="farmControllerApp.colheita.dataColheita">Data Colheita</span></th>
+            <th><span jhiTranslate="farmControllerApp.colheita.produtividade">Produtividade</span></th>
+            <th><span jhiTranslate="farmControllerApp.colheita.produtoAgricola">Produto Agricola</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let colheita of colheitas ;trackBy: trackId">
+                <td><a [routerLink]="['/colheita', colheita.id, 'view' ]">{{colheita.id}}</a></td>
+                <td>{{colheita.dataColheita | date:'mediumDate'}}</td>
+                <td>{{colheita.produtividade}}</td>
+                <td>
+                    <div *ngIf="colheita.produtoAgricola">
+                        <a [routerLink]="['../produto-agricola', colheita.produtoAgricola?.id, 'view' ]" >{{colheita.produtoAgricola?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/colheita', colheita.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/colheita', colheita.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'colheita/'+ colheita.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

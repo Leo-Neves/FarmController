@@ -1,0 +1,72 @@
+{
+    "name": "Plantio",
+    "fields": [
+        {
+            "fieldName": "dataPlantio",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataPrevisaoColheita",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "quantidadePlantado",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "talhao",
+            "otherEntityName": "talhao",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "cultura",
+            "otherEntityName": "cultura",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "colheita",
+            "otherEntityName": "colheita",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plantio"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "safra",
+            "otherEntityName": "safra",
+            "otherEntityRelationshipName": "plantio"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "insumo",
+            "otherEntityName": "insumo",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "atividade",
+            "otherEntityName": "atividade",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20181017222512",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "plantio",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

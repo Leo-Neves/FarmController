@@ -1,0 +1,34 @@
+{
+    "name": "Produtor",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cpf",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dataNascimento",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "fazenda",
+            "otherEntityName": "fazenda",
+            "otherEntityRelationshipName": "produtor"
+        }
+    ],
+    "changelogDate": "20181017222507",
+    "entityTableName": "produtor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

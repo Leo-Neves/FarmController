@@ -1,0 +1,24 @@
+
+{
+    "farmControllerApp": {
+        "cultura" : {
+            "home": {
+                "title": "Culturas",
+                "createLabel": "Criar novo Cultura",
+                "createOrEditLabel": "Criar ou editar Cultura"
+            },
+            "created": "Um novo Cultura foi criado com o identificador {{ param }}",
+            "updated": "Um Cultura foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Cultura foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Cultura {{ id }}?"
+            },
+            "detail": {
+                "title": "Cultura"
+            },
+            "nome": "Nome",
+            "nomeCientifico": "Nome Cientifico",
+            "plantio": "Plantio"
+        }
+    }
+}

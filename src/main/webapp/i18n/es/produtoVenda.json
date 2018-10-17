@@ -1,0 +1,24 @@
+
+{
+    "farmControllerApp": {
+        "produtoVenda" : {
+            "home": {
+                "title": "Produto Vendas",
+                "createLabel": "Crear nuevo Produto Venda",
+                "createOrEditLabel": "Crear o editar Produto Venda"
+            },
+            "created": "Un nuevo Produto Venda ha sido creado con el identificador {{ param }}",
+            "updated": "Un Produto Venda ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Produto Venda ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Produto Venda {{ id }}?"
+            },
+            "detail": {
+                "title": "Produto Venda"
+            },
+            "preco": "Preco",
+            "produtosAgricola": "Produtos Agricola",
+            "venda": "Venda"
+        }
+    }
+}

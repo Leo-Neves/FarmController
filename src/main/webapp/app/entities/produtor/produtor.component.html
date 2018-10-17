@@ -1,0 +1,58 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="farmControllerApp.produtor.home.title">Produtors</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-produtor" [routerLink]="['/produtor/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="farmControllerApp.produtor.home.createLabel">
+            Create new Produtor
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="produtors">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="farmControllerApp.produtor.nome">Nome</span></th>
+            <th><span jhiTranslate="farmControllerApp.produtor.cpf">Cpf</span></th>
+            <th><span jhiTranslate="farmControllerApp.produtor.dataNascimento">Data Nascimento</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let produtor of produtors ;trackBy: trackId">
+                <td><a [routerLink]="['/produtor', produtor.id, 'view' ]">{{produtor.id}}</a></td>
+                <td>{{produtor.nome}}</td>
+                <td>{{produtor.cpf}}</td>
+                <td>{{produtor.dataNascimento | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/produtor', produtor.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/produtor', produtor.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'produtor/'+ produtor.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

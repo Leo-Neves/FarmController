@@ -1,0 +1,37 @@
+{
+    "name": "Talhao",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "geometria",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "fazenda",
+            "otherEntityName": "fazenda",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "plantio",
+            "otherEntityName": "plantio",
+            "otherEntityRelationshipName": "talhao"
+        }
+    ],
+    "changelogDate": "20181017222509",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "talhao",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-venda-heading" jhiTranslate="farmControllerApp.venda.home.createOrEditLabel">Create or edit a Venda</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!venda.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="venda.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.venda.dataVenda" for="field_dataVenda">Data Venda</label>
+                    <div class="input-group">
+                        <input id="field_dataVenda" type="text" class="form-control" name="dataVenda" ngbDatepicker  #dataVendaDp="ngbDatepicker" [(ngModel)]="venda.dataVenda"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataVendaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.venda.produtoVenda" for="field_produtoVenda">Produto Venda</label>
+                    <select class="form-control" id="field_produtoVenda" name="produtoVenda" [(ngModel)]="venda.produtoVenda" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produtoVendaOption.id === venda.produtoVenda?.id ? venda.produtoVenda : produtoVendaOption" *ngFor="let produtoVendaOption of produtovendas; trackBy: trackProdutoVendaById">{{produtoVendaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="farmControllerApp.venda.cliente" for="field_cliente">Cliente</label>
+                    <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="venda.cliente" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clienteOption.id === venda.cliente?.id ? venda.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

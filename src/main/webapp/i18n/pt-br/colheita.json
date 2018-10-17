@@ -1,0 +1,25 @@
+
+{
+    "farmControllerApp": {
+        "colheita" : {
+            "home": {
+                "title": "Colheitas",
+                "createLabel": "Criar novo Colheita",
+                "createOrEditLabel": "Criar ou editar Colheita"
+            },
+            "created": "Um novo Colheita foi criado com o identificador {{ param }}",
+            "updated": "Um Colheita foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Colheita foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Colheita {{ id }}?"
+            },
+            "detail": {
+                "title": "Colheita"
+            },
+            "dataColheita": "Data Colheita",
+            "produtividade": "Produtividade",
+            "produtoAgricola": "Produto Agricola",
+            "plantio": "Plantio"
+        }
+    }
+}

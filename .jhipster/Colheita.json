@@ -1,0 +1,39 @@
+{
+    "name": "Colheita",
+    "fields": [
+        {
+            "fieldName": "dataColheita",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "produtividade",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "produtoAgricola",
+            "otherEntityName": "produtoAgricola",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "colheita"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "plantio",
+            "otherEntityName": "plantio",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "colheita"
+        }
+    ],
+    "changelogDate": "20181017222515",
+    "entityTableName": "colheita",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
